@@ -18,7 +18,7 @@ kind: ServiceBinding
 metadata:
   name: hello-rpilab-config
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
+    local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:2961912381c39e59ede90d519d45f09df305dc685a9aeb77a5c61930a63315bd
     autoscaling.knative.dev/maxScale: "3"
     autoscaling.knative.dev/minScale: "0"
     autoscaling.knative.dev/window: 120s
@@ -46,7 +46,7 @@ kind: ServiceBinding
 metadata:
   name: hello-rpilab-db
   annotations:
-    local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
+    local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:2961912381c39e59ede90d519d45f09df305dc685a9aeb77a5c61930a63315bd
     autoscaling.knative.dev/maxScale: "3"
     autoscaling.knative.dev/minScale: "0"
     autoscaling.knative.dev/window: 120s

@@ -38,7 +38,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
+        developer.apps.tanzu.vmware.com/image-source-digest: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:2961912381c39e59ede90d519d45f09df305dc685a9aeb77a5c61930a63315bd
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:2961912381c39e59ede90d519d45f09df305dc685a9aeb77a5c61930a63315bd
         sidecar.opentelemetry.io/inject: "true"
@@ -66,7 +66,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: tdkhub.azurecr.io/tanzu-application-platform/dev/workloads/hello-rpilab-aro@sha256:eb1c84a06ba7dfb82c79611e4d87ee0d8b6af8b39a44af4351e50f5728797619
+        image: tdkhub.azurecr.io/tanzu-application-platform/dev/workloads/hello-rpilab-aro@sha256:44429c63a907f292f20aeef36099ce7a87db824a81427a681e51df1d024994c1
         livenessProbe:
           httpGet:
             path: /livez

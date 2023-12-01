@@ -1,0 +1,71 @@
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+waitRules:
+- conditionMatchers:
+  - type: ServiceAvailable
+    status: "False"
+    failure: true
+  - type: ServiceAvailable
+    status: "True"
+    success: true
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: servicebinding.io/v1alpha3
+      kind: ServiceBinding
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: hello-rpilab-config
+  annotations:
+    local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
+    autoscaling.knative.dev/maxScale: "3"
+    autoscaling.knative.dev/minScale: "0"
+    autoscaling.knative.dev/window: 120s
+    sidecar.opentelemetry.io/inject: "true"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: hello-rpilab
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: hello-rpilab
+spec:
+  name: config
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: hello-rpilab-config
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hello-rpilab
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: hello-rpilab-db
+  annotations:
+    local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
+    autoscaling.knative.dev/maxScale: "3"
+    autoscaling.knative.dev/minScale: "0"
+    autoscaling.knative.dev/window: 120s
+    sidecar.opentelemetry.io/inject: "true"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: hello-rpilab
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: hello-rpilab
+spec:
+  name: db
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ClassClaim
+    name: hello-rpilab-db
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hello-rpilab
+

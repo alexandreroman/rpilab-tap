@@ -40,7 +40,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
         developer.apps.tanzu.vmware.com/image-source-digest: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:cff4527197b608baf4fd0da659f9a30c5117bd2728bb55b00be5abdcb2cda8ea
+        local-source-proxy.apps.tanzu.vmware.com: tdkhub.azurecr.io/tanzu-application-platform/dev/workload:aro-hello-rpilab@sha256:2961912381c39e59ede90d519d45f09df305dc685a9aeb77a5c61930a63315bd
         sidecar.opentelemetry.io/inject: "true"
       labels:
         app.kubernetes.io/component: run

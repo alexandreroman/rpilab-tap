@@ -57,7 +57,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/config/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: tdkhub.azurecr.io/tanzu-application-platform/workloads/hello-rpilab-stable@sha256:e200eaede316b15d92cf20aa924d8807d480cc52568ac00c0b22e8f856e9f730
+        image: tdkhub.azurecr.io/tanzu-application-platform/workloads/hello-rpilab-stable@sha256:327a9d142046b22107e65848ef26bf097d36965d44a33bd3421c16b1a1e44224
         livenessProbe:
           httpGet:
             path: /livez

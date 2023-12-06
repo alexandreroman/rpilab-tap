@@ -58,7 +58,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/config/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: tdkhub.azurecr.io/tanzu-application-platform/dev/workloads/hello-rpilab-aro@sha256:1134e4c405ab563ee548e6cfc5a733ca130504ece1d397ce74551462cc2f6612
+        image: tdkhub.azurecr.io/tanzu-application-platform/dev/workloads/hello-rpilab-aro@sha256:38883b2d0b8e7d93032fe35703a832d22e402f2930fc2d4cbcfde4a2aaba194a
         livenessProbe:
           httpGet:
             path: /livez
@@ -80,7 +80,14 @@ spec:
             cpu: 500m
             memory: 1Gi
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
         startupProbe:
           httpGet:
             path: /readyz

@@ -21,7 +21,7 @@ spec:
         autoscaling.knative.dev/minScale: "0"
         autoscaling.knative.dev/window: 120s
         boot.spring.io/actuator: http://:8081/actuator
-        boot.spring.io/version: 3.2.0
+        boot.spring.io/version: 3.2.1
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
@@ -57,7 +57,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/config/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: tdkhub.azurecr.io/tanzu-application-platform/workloads/hello-rpilab-stable@sha256:6a4c754f07f058f4f057f95658cdeefdf9ffadb27a526beb4401972108a6b646
+        image: tdkhub.azurecr.io/tanzu-application-platform/workloads/hello-rpilab-stable@sha256:5704a6c4870d0a858e8a3aec055f1f5a2c1854a977e3687fcc2a014bbfe48153
         livenessProbe:
           httpGet:
             path: /livez
